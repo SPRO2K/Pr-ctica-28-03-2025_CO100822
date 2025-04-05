@@ -29,7 +29,7 @@ async function recordVideo() {
         
         let chunks = [];
         window.recorder.ondataavailable = function(event){
-            if(event.data.size <= 0){
+            if(event.data.size > 0){
                 chunks.push(event.data);
             }
         };
@@ -50,5 +50,61 @@ async function recordVideo() {
 
         window.recorder.start();
 
+    }
+}
+function geolocalizacion(){
+     if ( navigator.permissions && navigator.permissions.query) {
+        navigator.permissions.query({name:`geolocation`}).then(function(result){
+            const permissions = result.state;
+            if(permissions === `granted` || permissions === `prompt`){
+                _onGetCurrentlocation();
+            }
+        });
+        
+     }else if(navigator.geolocation){
+        _onGetCurrentlocation();
+     }
+}
+
+function _onGetCurrentlocation(){
+    const options = {
+        enableHighAccuracy: true,
+        Timeout: 5000,
+        maximumAge: 0
+    };
+    navigator.geolocation.getCurrentPosition(function(position){
+        const marker = {
+            lat: position.coords.latitude,
+            lgn: position.coords.latitude
+        };
+        let enlace = document.getElementById("ir_mapa");
+        enlace.href= `https://maps.google.com/?q=${marker.lat},${marker.lng}`;
+        enlace.text ="IR AL MAPA";
+        enlace.target = "_blank";
+
+    },function(error){
+        console.log(error);
+
+    },options);
+}
+
+
+const init = () =>{
+    const tieneSoprteUsermedia = () =>
+        ||(navigator.mediaDevices.getUserMedia);
+
+
+    if(typeof mediaRecorder === "undefined" || !tieneSoprteUsermedia()){
+        return alert("su navegador no cumple con los requisitos, favor actualice");
+
+    } 
+    const $listaDeDispositivos = document.querySelector("#listaDeDispositivos"),
+    $duracion = document.querySelector("#aduracion"),
+    $btnComenzarGrabacion = document.querySelector("#btnComenzarGrabacion"),
+    $btnComenzarDetenerGrabacion = document.querySelector("#btnDetenerGrabacion");
+
+
+    const limpiarSelect = () => {
+        
     }
 }
