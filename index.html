@@ -2,19 +2,19 @@
 <html lang="en-US" dir="ltr">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content="Aplicación web progresiva para la conversion de unidades de temperatur" />
+        <meta name="description" content="Aplicación web progresiva para la conversion de unidades de temperatura" />
         <meta name="keywords" content="calculo, matematico,converson,temperatura,practica,investigacion,estudio,conversion" />
         <meta name="autor" content="Sebastian Ernesto Cordova Orellana" />
         <meta name="copyrigth" content="2025 REMQ" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>Conversor de temperatura Sebastian Ernesto</title>
+        <title>Conversor de temperatura Sebastian</title>
         <link rel="shortcut icon" href="https://c.s-microsoft.com/favicon.ico?v2" />
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="fonts/fontawesome-free-6.6.0-web/css/all.css" />
         <link rel="manifest" href="manifest.json" />   
     </head>
     <body onload="requestNotificationPermission();">
-        <h1>Conversor de temperatura</h1>
+        <h1>Conversor   de temperatura</h1>
         <form id="converter">
             <label for="input-temp">Temperatura:</label>
             <input type="text"id="input-temp" name="input-temp" value="20" />
@@ -37,20 +37,24 @@
         
         <button class="btn btn1" onclick="recordVideo();" id="recording-button"><i class="fa fa-circle"></i></button>
         <video class="animate done" controls="true" id="video-element"></video>
-        <button class="btn btn1"onclick="geolocalizacion();">ver ubicacion</button>
-        <div<><a id="ir_mapa" href=""></a></div>
+        <button class="btn btn1" onclick="geolocalizacion();">Ver su ubicación</button>
+        <div><a id="ir_mapa" href=""></a></div>
+
 
         <hr />
+        
         <div>
-            <select name="listaDedispositivos" id="listaDedispositivos">
-             
-             </select>
-             <br /><br />
-             <p id="duration"></p>
-             <button id="btnComenzarGrabacion">Comenzar</button>
-             <button id="btnDetenerGrabacion">Detener</button>
+            <select name="listaDeDispositivos" id="listaDeDispositivos">
 
+            </select>
+            <br /><br />
+            <p id="duracion"></p>
+            <br />
+            <button id="btnComenzarGrabacion">Comenzar</button>
+            <button id="btnDetenerGrabacion">Detener</button>
         </div>
+
+
 
         
         <script src="js/converter.js"></script>
